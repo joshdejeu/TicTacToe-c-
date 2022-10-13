@@ -88,28 +88,30 @@ void generate_player2_move(char board[SIZE][SIZE]){
 }
 int check_three_in_a_row(char board[SIZE][SIZE]){
     if(
+        //horizontal
         board[0][0]=='X' && board[0][1]=='X' && board[0][2]=='X'||
         board[1][0]=='X' && board[1][1]=='X' && board[1][2]=='X'||
         board[2][0]=='X' && board[2][1]=='X' && board[2][2]=='X'||
-
+        //vertical
         board[0][0]=='X' && board[1][0]=='X' && board[2][0]=='X'||
         board[0][1]=='X' && board[1][1]=='X' && board[2][1]=='X'||
         board[0][2]=='X' && board[1][2]=='X' && board[2][2]=='X'||        
-        
+        //diagonal
         board[0][0]=='X' && board[1][1]=='X' && board[2][2]=='X'||
         board[2][0]=='X' && board[1][1]=='X' && board[0][2]=='X')
     {
         return 2;//player 2 has won
     }
     else if(
+        //horizontal
         board[0][0]=='O' && board[0][1]=='O' && board[0][2]=='O'||
         board[1][0]=='O' && board[1][1]=='O' && board[1][2]=='O'||
         board[2][0]=='O' && board[2][1]=='O' && board[2][2]=='O'||
-
+        //vertical
         board[0][0]=='O' && board[1][0]=='O' && board[2][0]=='O'||
         board[0][1]=='O' && board[1][1]=='O' && board[2][1]=='O'||
         board[0][2]=='O' && board[1][2]=='O' && board[2][2]=='O'||        
-        
+        //diagonal
         board[0][0]=='O' && board[1][1]=='O' && board[2][2]=='O'||
         board[2][0]=='O' && board[1][1]=='O' && board[0][2]=='O')
     {
