@@ -75,6 +75,9 @@ bool check_legal_option(char board[SIZE][SIZE], int r, int c){
     return true;
 }
 void generate_player2_move(char board[SIZE][SIZE]){
+    if(check_end_of_game(board)){
+        return;//check if game is over
+    }
     //generate random number between 0 and 2:
     int randRow = (rand() % 3)+1, randCol = (rand() % 3)+1;
     if(!check_legal_option(board, randRow, randCol)){
@@ -122,14 +125,14 @@ int check_three_in_a_row(char board[SIZE][SIZE]){
     }
 }
 bool check_end_of_game(char board[SIZE][SIZE]){
+    if(check_table_full(board)){
+        return true;//game over on a draw
+    }
     if(check_three_in_a_row(board)==1 || check_three_in_a_row(board)==2){
         return true;//game is over
     }
     else{
         return false;//game is NOT over
-    }
-    if(check_three_in_a_row(board)==0){
-        return true;//game over on a draw
     }
 }
 void get_player1_move(char board[SIZE][SIZE]){
